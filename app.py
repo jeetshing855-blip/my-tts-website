@@ -14,7 +14,7 @@ if st.button("Generate"):
     if text:
         try:
             # यहाँ हमने मॉडल का नाम बदला है जो फ्री में चलता है
-            model = genai.GenerativeModel('gemini-pro') 
+           model = genai.GenerativeModel('gemini-1.5-flash-latest')
             response = model.generate_content(f"You are a TTS assistant. Process this text: {text}")
             
             st.success("AI ने आपका टेक्स्ट प्रोसेस कर लिया है!")
