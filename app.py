@@ -6,7 +6,7 @@ st.set_page_config(page_title="Jeet AI Voice", page_icon="🎙️")
 st.title("🎙️ Jeet's AI Voice Generator")
 
 # यहाँ अपनी नई API Key डालें
-genai.configure(api_key="AIzaSyB9OycJSZjGUJ-CCXq6t-JJuksncFQzMJ0")
+genai.configure(api_key="AIzaSyB1Ic34EplPvEyX9OyzMRoKKg4pEZ_I0d4")
 
 text_input = st.text_area("यहाँ लिखें:", placeholder="नमस्ते जीत!")
 
