@@ -12,7 +12,7 @@ text = st.text_area("यहाँ अपना टेक्स्ट लिख�
 
 if st.button("Generate"):
     if text:
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-1.5-pro')
         response = model.generate_content(f"Convert to speech instructions: {text}")
         st.success("AI ने आपका टेक्स्ट प्रोसेस कर लिया है!")
         st.write(response.text)
