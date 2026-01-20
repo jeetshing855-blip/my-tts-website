@@ -8,18 +8,17 @@ st.title("🎙️ Jeet's AI Voice Generator")
 # आपकी API Key
 genai.configure(api_key="AIzaSyBcIaGxdPLHr75LCHdcK-UjrSqAjUu14pg")
 
-text = st.text_area("यहाँ अपना टेक्स्ट लिखें:", placeholder="नमस्ते, मैं आपकी कैसे मदद कर सकता हूँ?")
+text = st.text_area("यहाँ अपना टेक्स्ट लिखें:", placeholder="नमस्ते!")
 
 if st.button("Generate"):
     if text:
         try:
-            # यहाँ हमने मॉडल का नाम बदला है जो फ्री में चलता है
-           model = genai.GenerativeModel('gemini-1.5-flash-latest')
-            response = model.generate_content(f"You are a TTS assistant. Process this text: {text}")
-            
-            st.success("AI ने आपका टेक्स्ट प्रोसेस कर लिया है!")
+            # हम सबसे लेटेस्ट और स्टेबल मॉडल का नाम इस्तेमाल कर रहे हैं
+            model = genai.GenerativeModel('gemini-1.5-flash') 
+            response = model.generate_content(text)
+            st.success("सफलता!")
             st.write(response.text)
         except Exception as e:
-            st.error(f"अभी भी एरर आ रहा है: {e}")
+            st.error(f"Error: {e}")
     else:
-        st.warning("कृपया पहले कुछ लिखें।")
+        st.warning("कृपया कुछ टाइप करें।")
