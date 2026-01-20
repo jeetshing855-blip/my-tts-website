@@ -1,20 +1,23 @@
 import streamlit as st
 import google.generativeai as genai
 from gtts import gTTS
+import os
 
 st.set_page_config(page_title="Jeet AI Voice", page_icon="🎙️")
 st.title("🎙️ Jeet's AI Voice Generator")
 
-# अपनी नई API Key यहाँ डालें
-genai.configure(api_key="AIzaSyB9OycJSZjGUJ-CCXq6t-JJuksncFQzMJ0")
+# Secrets से API Key उठाना
+if "GOOGLE_API_KEY" in st.secrets:
+    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+else:
+    st.error("कृपया Streamlit Secrets में API Key जोड़ें।")
 
 text_input = st.text_area("यहाँ लिखें:", placeholder="नमस्ते जीत!")
 
 if st.button("Generate Voice"):
     if text_input:
         try:
-            # v1beta के लिए सबसे सटीक मॉडल नाम
-            model = genai.GenerativeModel('gemini-1.0-pro')
+            model = genai.GenerativeModel('gemini-1.5-flash')
             response = model.generate_content(text_input)
             
             if response.text:
