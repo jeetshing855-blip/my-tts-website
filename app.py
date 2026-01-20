@@ -5,16 +5,16 @@ from gtts import gTTS
 st.set_page_config(page_title="Jeet AI Voice", page_icon="🎙️")
 st.title("🎙️ Jeet's AI Voice Generator")
 
-# यहाँ अपनी नई API Key डालें
-genai.configure(api_key="AIzaSyB1Ic34EplPvEyX9OyzMRoKKg4pEZ_I0d4")
+# अपनी नई API Key यहाँ डालें
+genai.configure(api_key="AIzaSyB9OycJSZjGUJ-CCXq6t-JJuksncFQzMJ0")
 
 text_input = st.text_area("यहाँ लिखें:", placeholder="नमस्ते जीत!")
 
 if st.button("Generate Voice"):
     if text_input:
         try:
-            # यह मॉडल 404 एरर को फिक्स करने के लिए सबसे अच्छा है
-            model = genai.GenerativeModel('gemini-pro')
+            # v1beta के लिए सबसे सटीक मॉडल नाम
+            model = genai.GenerativeModel('gemini-1.0-pro')
             response = model.generate_content(text_input)
             
             if response.text:
